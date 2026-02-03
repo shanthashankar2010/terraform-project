@@ -38,7 +38,7 @@ resource "aws_instance" "web" {
   user_data              = templatefile("./script.sh", {})
 
   tags = {
-    Name = "gpt clonee"
+    Name = "gpt clone"
   }
   root_block_device {
     volume_size = 30
