@@ -31,23 +31,23 @@ resource "aws_security_group" "Jenkins-sg" {
 
 
 resource "aws_instance" "web" {
-  ami                    = "ami-087d1c9a513324697"  #change your ami value according to your aws instance
+  ami                    = "ami-019715e0d74f695be"  #change your ami value according to your aws instance
   instance_type          = "t2.large"
-  key_name               = "jenkins"
+  key_name               = "terraformppk"
   vpc_security_group_ids = [aws_security_group.Jenkins-sg.id]
   user_data              = templatefile("./script.sh", {})
 
   tags = {
-    Name = "gpt clone"
+    Name = "gpt clonee"
   }
   root_block_device {
     volume_size = 30
   }
 }
 resource "aws_instance" "web2" {
-  ami                    = "ami-087d1c9a513324697" #change your ami value according to your aws instance 
+  ami                    = "ami-019715e0d74f695be" #change your ami value according to your aws instance 
   instance_type          = "t2.medium"
-  key_name               = "jenkins"
+  key_name               = "terraformppk"
   vpc_security_group_ids = [aws_security_group.Jenkins-sg.id]
   tags = {
     Name = "Monitering via grafana"
