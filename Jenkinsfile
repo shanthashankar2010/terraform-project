@@ -10,7 +10,7 @@ pipeline{
     stages {
         stage('Checkout from Git'){
             steps{
-                git branch: 'master', url: 'hhttps://github.com/shanthashankar2010/terraform-project.git'
+                git branch: 'master', url: 'https://github.com/shanthashankar2010/terraform-project.git'
             }
         }
         stage('Install Dependencies') {
