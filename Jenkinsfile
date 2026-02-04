@@ -10,7 +10,7 @@ pipeline{
     stages {
         stage('Checkout from Git'){
             steps{
-                git branch: 'master', url: 'https://github.com/shanthashankar2010/shantha-project.git'
+                git branch: 'master', url: 'hhttps://github.com/shanthashankar2010/terraform-project.git'
             }
         }
         stage('Install Dependencies') {
@@ -44,15 +44,15 @@ pipeline{
                 script{
                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){
                        sh "docker build -t chatbot ."
-                       sh "docker tag chatbot shantha/chatbot:latest "
-                       sh "docker push shantha/chatbot:latest "
+                       sh "docker tag chatbot shanthashankar/chatbot:latest "
+                       sh "docker push shanthashankar/chatbot:latest "
                     }
                 }
             }
         }
         stage("TRIVY"){
             steps{
-                sh "trivy image shantha/chatbot:latest > trivy.json"
+                sh "trivy image shanthashankar/chatbot:latest > trivy.json"
             }
         }
         stage ("Remove container") {
